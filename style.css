@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Pinyon+Script');
 
 body {
-	width: 75%;
+	width: 1200px;
 	margin: auto;
 	margin-top: 20px;
 	font-family: 'Pinyon Script', sans-serif;
@@ -63,6 +63,7 @@ p {
 #nav a {
 	text-decoration: none;
 	color: inherit;
+	
 }
 
 #nav ul li:hover{
@@ -90,4 +91,51 @@ p {
 #version {
 	font-style: italic;
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+.icom{
+	float:left;
+	visibility:hidden;
+	margin-left: -20px;
+	position: absolute;
+	margin-top:30px;
+}
+
+
+/*Media Queries*/
+
+@media only screen and (max-width : 1200px) {
+	body{
+		width: 900px;
+		min-width:450px;
+	}
+	#wrap{
+		grid-template-columns: 20.8% 79.7%;
+	}
+}
+
+@media only screen and (max-width : 900px) {
+	body{
+		width: 100%;
+	}
+	#wrap{
+		grid-template-columns: 80px 92%;
+		display: grid;
+		grid-column-gap: 0%;
+	}
+	.stm{
+		visibility:hidden;
+	}
+	.icom{
+		visibility:visible;
+		z-index:30;
+		opacity:0.8;
+	}
+	.icom:hover{
+		opacity:1;
+	}
+	#nav ul li{
+	border-bottom: 0px solid #333;
+	}
+	
 }
