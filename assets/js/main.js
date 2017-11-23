@@ -55,8 +55,9 @@ window.stApp = {};
 						$('#homeSection').addClass('active');
 				}
 
-				$(this).parent('li').addClass('active');
-				$(this).closest('li').siblings().removeClass('active');
+				var $li = $(this).closest('li');
+				$li.addClass('active');
+				$li.siblings().removeClass('active');
 
 			});
 
