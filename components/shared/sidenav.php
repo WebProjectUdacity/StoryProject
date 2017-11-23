@@ -1,8 +1,8 @@
 <div id="nav">
 	<ul>
-		<li><a href="#1" id="Home"><span class="stm">Home</span><img src="assets/images/home.png" class="icom"></a></li>
-		<li><a href="#2" id="Log"><span class="stm">LogIn</span><img src="assets/images/login.png" class="icom"></a></li>
-		<li><a href="#3" id="Guide"><span class="stm">Guide</span><img src="assets/images/guide.png" class="icom"></a></li>
-		<li><a href="#4" id="Game"><span class="stm">Write!</span><img src="assets/images/edit.png" class="icom"></a></li>
+		<li class="active"><a href="#homeSection"><span id="Home" class="stm">Home<img src="assets/images/home.png" class="icom"></span></a></li>
+		<li><a href="#loginSection"><span id="Log" class="stm">LogIn<img src="assets/images/login.png" class="icom"></span></a></li>
+		<li><a href="#guideSection"><span id="Guide" class="stm">Guide<img src="assets/images/guide.png" class="icom"></span></a></li>
+		<li><a href="#writeSection"><span id="Game" class="stm">Write!<img src="assets/images/edit.png" class="icom"></span></a></li>
 	</ul>
 </div>

@@ -1,43 +1,81 @@
-/* 
-	
-	Needs refactor
-	and namespacing
+/*
+
+	Creating a global name space 
+	for protecting our code from 
+	Js codes.
+
+	the name space is stApp using
+	an IIFE.
+
+	it is an object 
+	in which you the initToggleMenu and the init
+	function live and there protected from the 
+	outside code
 
 */
 
-$( function() {
+window.stApp = {};
 
-	$('#Home').click(function () {
+(function(window, document, $, stApp, undefined) {
 
-		document.getElementById('Home').style.display = 'block';
-		document.getElementById('Log').style.display = 'none';
-		document.getElementById('Guide').style.display = 'none';
-		document.getElementById('Game').style.display = 'none';
-	})
+	window.stApp = window.stApp || {};
 
-	$('#Log').click(function () {
+	// creating a function 
+	// which will start
+	// the app working
+	stApp.init = function() {
+
+		// this is function that makes the 
+		// menu work
+		this.initToggleMenu = function() {
+
+			var $wrapper = $('#nav');
+			var $panelSection = $('.panel-section');
+
+			$wrapper.on('click', '.stm', function(e){
+				e.preventDefault();
+				var $id = $(this).attr('id')
+				//console.log($(this).attr('id'));
+
+				switch ($id) {
+					case 'Log':
+						$panelSection.removeClass('active');
+						$('#loginSection').addClass('active');
+						break;
+					case 'Guide':
+						$panelSection.removeClass('active');
+						$('#guideSection').addClass('active');
+						break;
+					case 'Game':	
+						$panelSection.removeClass('active');
+						$('#writeSection').addClass('active');
+						break;
+					default:
+						$panelSection.removeClass('active');
+						$('#homeSection').addClass('active');
+				}
+
+				$(this).parent('li').addClass('active');
+				$(this).closest('li').siblings().removeClass('active');
+
+			});
+
+			return 'try the menu links they work fine';
+
+		}();
+
+	};
+
+
+
+	// when the document is ready
+	// start the init function
+	// all of our code
+	$(function() {
 		
-		document.getElementById('Home').style.display = 'none';
-		document.getElementById('Log').style.display = 'block';
-		document.getElementById('Guide').style.display = 'none';
-		document.getElementById('Game').style.display = 'none';		
-	})
+		stApp.init();
 
-	$('#Guide').click(function () {
-		
-		document.getElementById('Home').style.display = 'none';
-		document.getElementById('Log').style.display = 'none';
-		document.getElementById('Guide').style.display = 'block';
-		document.getElementById('Game').style.display = 'none';
-	})
-
-	$('#Game').click(function () {
-		
-		document.getElementById('Home').style.display = 'none';
-		document.getElementById('Log').style.display = 'none';
-		document.getElementById('Guide').style.display = 'none';
-		document.getElementById('Game').style.display = 'block';
-	})
+	});
 
 
-});
+})(window, document, jQuery, window.stApp)
