@@ -61,9 +61,7 @@ window.stApp = {};
 
 			});
 
-			return 'try the menu links they work fine';
-
-		}();
+		};
 
 	};
 
@@ -75,6 +73,7 @@ window.stApp = {};
 	$(function() {
 		
 		stApp.init();
+		stApp.initToggleMenu();
 
 	});
 
