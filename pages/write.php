@@ -8,7 +8,7 @@ if ($files){
 }
 
 if($filecount > 0){
-for($i=0; $i-1 <= $filecount; $i++){
+for($i=1; $i-1 <= $filecount; $i++){
   echo "<div>";
   echo "<p>";
   include("components/writing/posts/file".$i.".txt");
