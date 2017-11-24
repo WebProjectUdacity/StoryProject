@@ -7,12 +7,13 @@ if ($files){
  $filecount = count($files);
 }
 
+if($filecount > 0){
 for($i=0; $i-1 <= $filecount; $i++){
   echo "<div>";
   echo "<p>";
   include("components/writing/posts/file".$i.".txt");
   echo "</p>";
-  echo "</div>";
+  echo "</div>";}
 }
 ?>
   <p>This is the write page</p>
