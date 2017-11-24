@@ -84,6 +84,9 @@ p {
 .panel-section.active {
   display: block!important;
 }
+.hidden-row {
+  display: none;
+}
 /*Media Queries*/
 @media only screen and (max-width: 1200px) {
   body {

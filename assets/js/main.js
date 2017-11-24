@@ -63,6 +63,49 @@ window.stApp = {};
 
 		};
 
+
+		//This is a function that makes 
+		//login/sign in toggle
+		this.initToggleLogin = function() {
+			var $loginPanel = $('.login-row');
+			var $signInPanel = $('.signIn-row');
+			var $choice = $('.choice-row');
+			var _radio = $choice.find('input[type=radio]');
+
+			var initFnToggle = function() {
+				var _checked = $choice.find("input[type=radio]:checked");
+				var _val = _checked.val();
+
+				switch(_val) {
+					case 'LogIn':
+						$signInPanel.removeClass('active').addClass('hidden-row').empty();
+						$loginPanel.removeClass('hidden-row').addClass('active');
+						$loginPanel.append(`
+						<label for="userLogin">Username:</label><input type="text" name="userLogin" required>
+						<label for="userPass">Password:</label><input type="password" name="userPass" placeholder="******" required>
+						<input type="submit" value="LogIn">`);
+						break;
+					case 'SignUp':
+						$loginPanel.removeClass('active').addClass('hidden-row').empty();
+						$signInPanel.removeClass('hidden-row').addClass('active');
+						$signInPanel.append(`
+						<label for="userSignIn">Username:</label><input type="text" name="userSignIn" required>
+						<label for="emailSignIn">Email adress:</label><input type="email" placeholder="your@domain.com" name="emailSignIn" required>
+						<label for="passSignIn">Password:</label><input type="password" placeholder="******" name="passSignIn" required>
+						<label for="confirmSignIn">Password:</label><input type="password" placeholder="******" name="confirmSignIn" required>
+						<input type="submit" value="SignUp">		
+						`);											
+
+				}
+
+			};
+
+			initFnToggle();
+			
+			_radio.on('change', initFnToggle)
+
+		};
+
 	};
 
 
@@ -74,6 +117,7 @@ window.stApp = {};
 		
 		stApp.init();
 		stApp.initToggleMenu();
+		stApp.initToggleLogin();
 
 	});
 
