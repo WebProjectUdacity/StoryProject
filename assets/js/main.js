@@ -17,6 +17,7 @@
 window.stApp = {};
 
 (function(window, document, $, stApp, undefined) {
+	"use strict";
 
 	window.stApp = window.stApp || {};
 
