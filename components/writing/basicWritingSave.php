@@ -17,7 +17,7 @@ if(isset($_POST['write'])) {
     }
 }
 else {
-   die(/n'no post data to process');
+   die('no post data to process');
 }
 
 ?>
