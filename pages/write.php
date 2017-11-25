@@ -22,5 +22,4 @@ for($i=1; $i-1 < $filecount-1; $i++){
   <textarea name="write" cols="30" rows="10"></textarea>
   <button type="button" name="Send Text" id="submit" onClick="window.location.reload()"> Submit </button>
 </form>
-<script src="assets/js/ajaxSendWrite.js"></script>
 </section>
