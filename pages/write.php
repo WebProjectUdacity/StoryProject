@@ -18,8 +18,9 @@ for($i=1; $i-1 < $filecount-1; $i++){
 }
 ?>
   <p>This is the write page</p>
-<form action="components/writing/basicWritingSave.php" method="post">
+<form method="post" enctype="multipart/form-data" id="form">
   <textarea name="write" cols="30" rows="10"></textarea>
-  <input type="submit" name="submit" value="Send Text">
+  <button type="button" name="Send Text" id="submit" onClick="window.location.reload()"> Submit </button>
 </form>
+<script src="assets/js/ajaxSendWrite.js"></script>
 </section>

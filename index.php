@@ -4,15 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Storyteller</title>
 	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<?php include('components/shared/header.php');?>
-	
+
 	<div id="wrap">
 		<?php include('components/shared/sidenav.php');?>
 
 		<main role="main" id="main">
-			
+
 			<?php include('pages/home.php') ?>
 			<?php include('pages/login.php') ?>
 			<?php include('pages/guide.php') ?>
@@ -22,7 +23,7 @@
 
 	</div>
 	<span id="version">Beta v_1.0</span>
-	
+
 	<!-- js script go before the </body> -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="assets/js/main.js"></script>
