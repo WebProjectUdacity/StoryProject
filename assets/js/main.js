@@ -110,7 +110,7 @@ window.stApp = {};
 		/* Following function sets the scrollbar theme. */
 		(function($){
 	        $(window).on("load",function(){
-	            $("#main").mCustomScrollbar({
+	            $("#writeSection .region-area-1").mCustomScrollbar({
 	            	theme: "inset-2-dark", // For more themes, see: http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/scrollbar_themes_demo.html
 	            	scrollButtons:{
 	            		enable: true

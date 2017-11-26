@@ -12,7 +12,7 @@
 	<div id="wrap">
 		<?php include('components/shared/sidenav.php');?>
 
-		<main role="main" id="main" class="bar mCustomScrollbar" data-mcs-theme="inset-2-dark">
+		<main role="main" id="main">
 
 			<?php include('pages/home.php') ?>
 			<?php include('pages/login.php') ?>
