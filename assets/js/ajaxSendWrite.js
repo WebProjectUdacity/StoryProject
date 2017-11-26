@@ -1,3 +1,7 @@
+/*Sends data from write to the basicsWritingSave.php
+
+*/
+
 $("#submit").click(function(){
      $.ajax({
         type: 'POST',

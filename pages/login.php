@@ -1,6 +1,6 @@
 <section id="loginSection" class="panel-section">
 
-	<form action="">
+	<form method="post" action="" id="login-signup">
 
 		<fieldset class="form-container">
 
@@ -20,8 +20,8 @@
 
 
 		</fieldset>
-	
-	
+
+
 	</form>
 
 </section>

@@ -84,7 +84,7 @@ window.stApp = {};
 						$loginPanel.append(`
 						<label for="userLogin">Username:</label><input type="text" name="userLogin" required>
 						<label for="userPass">Password:</label><input type="password" name="userPass" placeholder="******" required>
-						<input type="submit" value="LogIn">`);
+						<input type="submit" value="LogIn" id="login">`);
 						break;
 					case 'SignUp':
 						$loginPanel.removeClass('active').addClass('hidden-row').empty();
@@ -94,8 +94,8 @@ window.stApp = {};
 						<label for="emailSignIn">Email adress:</label><input type="email" placeholder="your@domain.com" name="emailSignIn" required>
 						<label for="passSignIn">Password:</label><input type="password" placeholder="******" name="passSignIn" required>
 						<label for="confirmSignIn">Password:</label><input type="password" placeholder="******" name="confirmSignIn" required>
-						<input type="submit" value="SignUp">		
-						`);											
+						<input type="submit" value="SignUp" id="signup">		
+						`);									
 
 				}
 

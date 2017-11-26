@@ -29,4 +29,5 @@
 	<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/ajaxSendWrite.js"></script>
+	<script src="assets/js/ajaxRegisterToDatabase.js"></script>
 </body>
