@@ -97,6 +97,23 @@ p {
   display: none;
 }
 
+label {
+  font-size: 1.3rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  height: 34px;
+  padding: 0.8rem;
+}
+
+input[type="text"]::-webkit-input-placeholder,
+input[type="email"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder {
+  color: #000;
+}
+
 .choice-row > label {
   cursor: pointer;
   width: 100%;
@@ -123,9 +140,6 @@ fieldset {
 .form-row input {
   display: inline-block;
   width: 100%;
-}
-
-.form-row input {
   background-color: transparent;
   border: 2px solid black;
 }
@@ -138,9 +152,10 @@ fieldset input[type="submit"] {
   border: 2px solid black;
   text-transform: uppercase;
   font-family: inherit;
-  font-size: 20px;
+  font-size: 18px;
   display: block;
   margin: 19px auto 0;
+  cursor: pointer;
 }
 
 .icom {
@@ -194,7 +209,7 @@ fieldset input[type="submit"] {
   bottom:0;
   top: 0;
   width: 18%;
-  font-weight: bold;
+  font-size: 18px;
   cursor: pointer;
 }
 
