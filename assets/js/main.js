@@ -107,17 +107,54 @@ window.stApp = {};
 
 		};
 
+
 		/* Following function sets the scrollbar theme. */
-		(function($){
-	        $(window).on("load",function(){
-	            $("#writeSection .region-area-1").mCustomScrollbar({
-	            	theme: "inset-2-dark", // For more themes, see: http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/scrollbar_themes_demo.html
-	            	scrollButtons:{
-	            		enable: true
-	            	}
-	            });
-	        });
-	    })(jQuery);
+		this.initMalihu = function() {
+			$(window).on("load",function(){
+					$("#writeSection .region-area-1").mCustomScrollbar({
+						theme: "inset-2-dark", // For more themes, see: http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/scrollbar_themes_demo.html
+						scrollButtons:{
+							enable: true
+						}
+					});
+			});
+		};
+
+
+		/*Sends data from write to the basicsWritingSave.php*/
+		this.initAjaxSendWrite = function() {
+			$("#submit").click(function(){
+				$.ajax({
+					type: 'POST',
+					url: 'components/writing/basicWritingSave.php',
+					data: $('#form').serialize(),
+						success: function (data) {
+						},
+				});
+			});
+		};
+
+
+		/*Sends the signup data to the createUser.php to add theme
+		to the database.
+		*/
+		this.initAjaxRegisterToDatabase = function() {
+
+			$("#login-signup").on("click", "#signup", function(){
+				$.ajax({
+					type: 'POST',
+					url: 'components/database/createUser.php',
+					data: $('#login-signup').serialize(),
+					success: function (data) {
+					},
+					error: function(jqXHR, textStatus) {
+						alert( "Request failed: " + textStatus );
+					},
+				});
+			});
+
+		};
+
 
 	};
 
@@ -131,6 +168,9 @@ window.stApp = {};
 		stApp.init();
 		stApp.initToggleMenu();
 		stApp.initToggleLogin();
+		stApp.initMalihu();
+		stApp.initAjaxSendWrite();
+		stApp.initAjaxRegisterToDatabase();
 
 	});
 

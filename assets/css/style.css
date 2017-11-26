@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Tangerine');
 @import url('https://fonts.googleapis.com/css?family=Pinyon+Script');
 
+@keyframes fadeDown {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 html {
   box-sizing: border-box;
 }
@@ -147,9 +154,17 @@ fieldset input[type="submit"] {
   display: none;
   padding: 1rem;
   position: relative;
+  opacity: 0;
+  transform: translateY(8px);
 }
 .panel-section.active {
   display: block!important;
+  animation-name: fadeDown;
+  animation-duration: .4s;
+  animation-delay: .5s;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
 
 #writeSection .form-control {
