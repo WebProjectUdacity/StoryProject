@@ -55,6 +55,7 @@ p {
   text-shadow: 2px 2px 8px #FF0000;
 }
 /* Main body */
+
 #main {
   background-image: url('../images/scroll.jpg');
   width: 97.8%;
@@ -74,10 +75,60 @@ p {
 #main p {
   padding: 0 2em;
 }
-#version {
-  font-style: italic;
-  font-family: Arial, Helvetica, sans-serif;
+
+/* Login page */
+
+#loginBtn, #signupBtn {
+  display: none;
 }
+
+.choice-row > label {
+  cursor: pointer;
+  width: 100%;
+}
+
+.choice-row {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  align-items: center;
+  text-align: center;
+}
+
+fieldset {
+  width: 30%;
+  border: solid 2px black;
+  margin: auto;
+  margin-top: 25px;
+  padding-bottom: 25px;
+  font-family: 'Plantagenet Cherokee', 'Arial', 'Helvetica', sans-serif;
+  font-size: 33px;
+}
+
+.form-row input {
+  display: inline-block;
+  width: 100%;
+}
+
+.form-row input {
+  background-color: transparent;
+  border: 2px solid black;
+}
+
+fieldset input[type="submit"] {
+  margin-top: 10px;
+  width: 125px;
+  height: 60px;
+  background-color: transparent;
+  border: 2px solid black;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: 20px;
+}
+
+
+
+
 .icom {
   float: left;
   visibility: hidden;
@@ -127,4 +178,11 @@ p {
   #nav ul li {
     border-bottom: 0px solid #333;
   }
+}
+
+
+/* "footnote" of current beta */
+#version {
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
 }
