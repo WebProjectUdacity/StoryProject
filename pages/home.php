@@ -1,4 +1,5 @@
 <div id="homeSection" class="panel-section active home">
 	<h1>Welcome !</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim pariatur aliquid a nemo soluta dignissimos minus accusamus porro natus autem cum error odio exercitationem quidem, veritatis, itaque quas, laudantium ipsam eveniet dolore assumenda est ex doloribus omnis. Doloremque placeat, veniam voluptatibus sit esse, nostrum perferendis in labore nisi provident similique, saepe accusamus officiis vero architecto, debitis eveniet magnam corporis sapiente?</p>
+	<p>This project is a work in progress led by Dustin, Sergio and Cedric. Built from scratch, the Story Project will allow you to collaborate with your team to imagine, create and write a story to publish afterwards.</p>
+	<p>What universe lies dormant inside your mind ?</p>
 </div>

@@ -39,12 +39,21 @@ h1 {
   grid-template-columns: 14.8% 85.7%;
   grid-gap: 1.2%;
 }
-/* Sidenav */
+
 p {
   font-size: 28px;
   color: #411111;
   font-weight: bold;
+  white-space: pre-wrap;
 }
+
+#writeSection p {
+  font-family: 'Monotype Corsiva';
+  color: black;
+}
+
+/* Sidenav */
+
 #nav {
   background-image: url("../images/sidenav.png");
   border: 2px solid #361818;
@@ -121,7 +130,6 @@ input[type="password"]::-webkit-input-placeholder {
 
 .choice-row {
   padding-bottom: 10px;
-  margin-bottom: 10px;
   border-bottom: 1px solid rgba(0,0,0,0.2);
   align-items: center;
   text-align: center;
@@ -131,7 +139,7 @@ fieldset {
   width: 30%;
   border: solid 2px black;
   margin: auto;
-  margin-top: 25px;
+  margin-top: 15px;
   padding-bottom: 25px;
   font-family: 'Plantagenet Cherokee', 'Arial', 'Helvetica', sans-serif;
   font-size: 33px;
