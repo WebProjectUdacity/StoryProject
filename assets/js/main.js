@@ -154,7 +154,7 @@ window.stApp = {};
 				});
 			});
 
-
+			
 		/*Sends login data to the login script
 		*/
 
