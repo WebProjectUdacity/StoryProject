@@ -157,14 +157,13 @@ window.stApp = {};
 			
 		/*Sends login data to the login script
 		*/
-
+if (!(logval = 0)){
 			$("#login-signup").on("click", "#login", function(){
 				$.ajax({
 					type: 'POST',
 					url: 'database/loginScript.php',
 					data: $('#login-signup').serialize(),
 					success: function (data) {
-							alert(logval + loguser);
 					},
 					error: function(jqXHR, textStatus) {
 						alert( "Request failed: " + textStatus );
@@ -172,7 +171,7 @@ window.stApp = {};
 				});
 			});
 
-
+       };
 
 	};
 
@@ -197,6 +196,7 @@ window.stApp = {};
 			},
 		})
 		$('#version').text('Beta v_1.0')
+		logval = 0;
 	}
 
 	// when the document is ready
