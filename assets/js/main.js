@@ -1,15 +1,15 @@
 /*
 
-	Creating a global name space 
-	for protecting our code from 
+	Creating a global name space
+	for protecting our code from
 	Js codes.
 
 	the name space is stApp using
 	an IIFE.
 
-	it is an object 
+	it is an object
 	in which you the initToggleMenu and the init
-	function live and there protected from the 
+	function live and there protected from the
 	outside code
 
 */
@@ -21,12 +21,12 @@ window.stApp = {};
 
 	window.stApp = window.stApp || {};
 
-	// creating a function 
+	// creating a function
 	// which will start
 	// the app working
 	stApp.init = function() {
 
-		// this is function that makes the 
+		// this is function that makes the
 		// menu work
 		this.initToggleMenu = function() {
 
@@ -47,9 +47,12 @@ window.stApp = {};
 						$panelSection.removeClass('active');
 						$('#guideSection').addClass('active');
 						break;
-					case 'Game':	
+					case 'Game':
 						$panelSection.removeClass('active');
 						$('#writeSection').addClass('active');
+						break;
+					case 'Out':
+						logout();
 						break;
 					default:
 						$panelSection.removeClass('active');
@@ -65,7 +68,7 @@ window.stApp = {};
 		};
 
 
-		//This is a function that makes 
+		//This is a function that makes
 		//login/sign in toggle
 		this.initToggleLogin = function() {
 			var $loginPanel = $('.login-row');
@@ -94,15 +97,15 @@ window.stApp = {};
 						<label for="emailSignIn">Email adress:</label><input type="email" placeholder="your@domain.com" name="emailSignIn" required>
 						<label for="passSignIn">Password:</label><input type="password" placeholder="******" name="passSignIn" required>
 						<label for="confirmSignIn">Password:</label><input type="password" placeholder="******" name="confirmSignIn" required>
-						<input type="submit" value="SignUp" id="signup">		
-						`);									
+						<input type="submit" value="SignUp" id="signup">
+						`);
 
 				}
 
 			};
 
 			initFnToggle();
-			
+
 			_radio.on('change', initFnToggle)
 
 		};
@@ -122,7 +125,6 @@ window.stApp = {};
 
 
 		/*Sends data from write to the basicsWritingSave.php*/
-		this.initAjaxSendWrite = function() {
 			$("#submit").click(function(){
 				$.ajax({
 					type: 'POST',
@@ -132,20 +134,19 @@ window.stApp = {};
 						},
 				});
 			});
-		};
 
 
-		/*Sends the signup data to the createUser.php to add theme
+		/*Sends the signup data to the createUser.php to add them
 		to the database.
 		*/
-		this.initAjaxRegisterToDatabase = function() {
 
 			$("#login-signup").on("click", "#signup", function(){
 				$.ajax({
 					type: 'POST',
-					url: 'components/database/createUser.php',
+					url: 'database/createUser.php',
 					data: $('#login-signup').serialize(),
 					success: function (data) {
+						aler(data);
 					},
 					error: function(jqXHR, textStatus) {
 						alert( "Request failed: " + textStatus );
@@ -153,24 +154,60 @@ window.stApp = {};
 				});
 			});
 
-		};
+
+		/*Sends login data to the login script
+		*/
+
+			$("#login-signup").on("click", "#login", function(){
+				$.ajax({
+					type: 'POST',
+					url: 'database/loginScript.php',
+					data: $('#login-signup').serialize(),
+					success: function (data) {
+							alert(logval + loguser);
+					},
+					error: function(jqXHR, textStatus) {
+						alert( "Request failed: " + textStatus );
+					},
+				});
+			});
+
 
 
 	};
 
 
+  //logged in JS changes
+	var logselect = $('#Log');
+	if (logval > 0){
+		logselect.text('LogOut');
+		logselect.attr('id', 'Out');
+		$('#version').text("Beta v_1.0 " + loguser);
+	}
+
+	//Logout function
+	function logout(){
+		logselect.text('LogIn');
+		logselect.attr('id', 'Log');
+		$.ajax({
+			type: 'POST',
+			url: 'database/logOut.php',
+			success: function (data){
+
+			},
+		})
+		$('#version').text('Beta v_1.0')
+	}
 
 	// when the document is ready
 	// start the init function
 	// all of our code
 	$(function() {
-		
+
 		stApp.init();
 		stApp.initToggleMenu();
 		stApp.initToggleLogin();
 		stApp.initMalihu();
-		stApp.initAjaxSendWrite();
-		stApp.initAjaxRegisterToDatabase();
 
 	});
 
