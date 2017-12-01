@@ -17,3 +17,4 @@ _Dustin_
 - [ ] Add the ability to create character sheets for existing and new characters 
 - [ ] Add some kind of moderation group (I would like to add a system where moderators are automatically chosen by their activity and the amounts of votes they get,  but I am not sure how reliable that might be) 
 - [X] Add some kind of widget to make the font size bigger and smaller
+- [ ] In the same idea, a widget (dropdown selector) to change the font-family of the write page paragraph
