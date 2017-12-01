@@ -42,14 +42,17 @@ window.stApp = {};
 					case 'Log':
 						$panelSection.removeClass('active');
 						$('#loginSection').addClass('active');
+						$('.spinner-container').removeClass('active');
 						break;
 					case 'Guide':
 						$panelSection.removeClass('active');
 						$('#guideSection').addClass('active');
+						$('.spinner-container').removeClass('active');
 						break;
 					case 'Game':
 						$panelSection.removeClass('active');
 						$('#writeSection').addClass('active');
+						$('.spinner-container').addClass('active');
 						break;
 					case 'Out':
 						logout();
@@ -57,6 +60,7 @@ window.stApp = {};
 					default:
 						$panelSection.removeClass('active');
 						$('#homeSection').addClass('active');
+						$('.spinner-container').removeClass('active');
 				}
 
 				var $li = $(this).closest('li');
@@ -128,27 +132,28 @@ window.stApp = {};
 		  font size of the website 
 		*/
 		this.initAdjustFont = function() {
-			
 			var $obj = $('.spinner-container');
 			var $btnPlus = $obj.find('.btn-plus');
 			var $btnMinus = $obj.find('.btn-minus');
-			var $rootEl = $('html');
-			var initVal = 100
+			var initVal =  parseInt($("#writeSection p").css('font-size'),10);
+
+			($('#writeSection').is('.active'))? $obj.addClass('active') : $obj.removeClass('.active');
+				
 
 			$btnPlus.on('click', function(e){				
 				e.stopPropagation();
-				if(initVal < 116 ) {
+				if(initVal <= 50 ) {
 					initVal++;
-					$rootEl.css({ fontSize : initVal + '%' });
+					$('#writeSection p').css({ fontSize : initVal + 'px' });
 				}
 				//..
 			});
 
 			$btnMinus.on('click', function(e){
 				e.stopPropagation();
-				if(initVal > 84) {
+				if(initVal => 18) {
 					initVal--;
-					$rootEl.css({ fontSize : initVal + '%' });				
+					$('#writeSection p').css({ fontSize : initVal + 'px' });				
 				}
 				//..
 			});			
