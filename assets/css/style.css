@@ -224,6 +224,7 @@ fieldset input[type="submit"] {
 
 #writeSection.panel-section {
   padding-bottom: 200px;
+  height: 100%;
 }
 
 #writeSection form,
