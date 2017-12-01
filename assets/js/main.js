@@ -123,6 +123,38 @@ window.stApp = {};
 			});
 		};
 
+		/* 
+			This is a function for increasing or decreasing the 
+		  font size of the website 
+		*/
+		this.initAdjustFont = function() {
+			
+			var $obj = $('.spinner-container');
+			var $btnPlus = $obj.find('.btn-plus');
+			var $btnMinus = $obj.find('.btn-minus');
+			var $rootEl = $('html');
+			var initVal = 100
+
+			$btnPlus.on('click', function(e){				
+				e.stopPropagation();
+				if(initVal < 116 ) {
+					initVal++;
+					$rootEl.css({ fontSize : initVal + '%' });
+				}
+				//..
+			});
+
+			$btnMinus.on('click', function(e){
+				e.stopPropagation();
+				if(initVal > 84) {
+					initVal--;
+					$rootEl.css({ fontSize : initVal + '%' });				
+				}
+				//..
+			});			
+
+		};	
+		
 
 		/*Sends data from write to the basicsWritingSave.php*/
 			$("#submit").click(function(){
@@ -208,6 +240,7 @@ if (!(logval = 0)){
 		stApp.initToggleMenu();
 		stApp.initToggleLogin();
 		stApp.initMalihu();
+		stApp.initAdjustFont();
 
 	});
 

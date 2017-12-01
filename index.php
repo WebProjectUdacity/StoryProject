@@ -20,6 +20,12 @@
 			<?php include('pages/guide.php') ?>
 			<?php include('pages/write.php') ?>
 
+			<!-- adjust font size -->
+			<div class="spinner-container">
+				<button class="spinner-btn btn-plus">+</button>
+				<button class="spinner-btn btn-minus">-</button>
+			</div>
+
 		</main>
 
 	</div>
