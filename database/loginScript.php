@@ -4,11 +4,7 @@
 
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form
-      define('DB_SERVER', 'localhost');
-      define('DB_USERNAME', 'root');
-      define('DB_PASSWORD', '');
-      define('DB_DATABASE', 'users');
-      $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+      $db = mysqli_connect($host,$username,$password,$dbname);
       $myusername = mysqli_real_escape_string($db,$_POST['userLogin']);
       $mypassword = mysqli_real_escape_string($db,$_POST['userPass']);
 
@@ -28,7 +24,7 @@
          $_SESSION['login_user'] = $myusername;
          $_SESSION['login'] = 1;
       }else {
-         $error = "Your Login Name or Password is invalid";
+         echo "Your Login Name or Password is invalid";
       }
    }
 ?>

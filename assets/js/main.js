@@ -91,7 +91,7 @@ window.stApp = {};
 						$loginPanel.append(`
 						<label for="userLogin">Username:</label><input type="text" name="userLogin" required>
 						<label for="userPass">Password:</label><input type="password" name="userPass" placeholder="******" required>
-						<input type="submit" value="LogIn" id="login">`);
+						<button type="button" value="LogIn" id="login">LogIn</button>`);
 						break;
 					case 'SignUp':
 						$loginPanel.removeClass('active').addClass('hidden-row').empty();
@@ -101,7 +101,7 @@ window.stApp = {};
 						<label for="emailSignIn">Email adress:</label><input type="email" placeholder="your@domain.com" name="emailSignIn" required>
 						<label for="passSignIn">Password:</label><input type="password" placeholder="******" name="passSignIn" required>
 						<label for="confirmSignIn">Password:</label><input type="password" placeholder="******" name="confirmSignIn" required>
-						<input type="submit" value="SignUp" id="signup">
+						<button type="button" id="signup">SignUp</button>
 						`);
 
 				}
@@ -127,9 +127,9 @@ window.stApp = {};
 			});
 		};
 
-		/* 
-			This is a function for increasing or decreasing the 
-		  font size of the website 
+		/*
+			This is a function for increasing or decreasing the
+		  font size of the website
 		*/
 		this.initAdjustFont = function() {
 			var $obj = $('.spinner-container');
@@ -138,9 +138,9 @@ window.stApp = {};
 			var initVal =  parseInt($("#writeSection p").css('font-size'),10);
 
 			($('#writeSection').is('.active'))? $obj.addClass('active') : $obj.removeClass('.active');
-				
 
-			$btnPlus.on('click', function(e){				
+
+			$btnPlus.on('click', function(e){
 				e.stopPropagation();
 				if(initVal <= 50 ) {
 					initVal++;
@@ -153,13 +153,13 @@ window.stApp = {};
 				e.stopPropagation();
 				if(initVal => 18) {
 					initVal--;
-					$('#writeSection p').css({ fontSize : initVal + 'px' });				
+					$('#writeSection p').css({ fontSize : initVal + 'px' });
 				}
 				//..
-			});			
+			});
 
-		};	
-		
+		};
+
 
 		/*Sends data from write to the basicsWritingSave.php*/
 			$("#submit").click(function(){
@@ -177,13 +177,25 @@ window.stApp = {};
 		to the database.
 		*/
 
-			$("#login-signup").on("click", "#signup", function(){
+			$("#login-signup").on("click", "#signup", function(e){
 				$.ajax({
 					type: 'POST',
 					url: 'database/createUser.php',
 					data: $('#login-signup').serialize(),
 					success: function (data) {
-						aler(data);
+						var msg = "";
+						if (data === 'This Username already exists'){
+							msg = "This Username already exists";
+						}
+						else if (data === 'This E-Mail already exists'){
+							msg = "This E-Mail already exists";
+						}
+						else{
+							window.location.reload();
+						}
+						e.stopImmediatePropagation();
+						$(".error-msg").remove();
+						$(".form-container").append("<p class='error-msg'>"+msg+"</p>");
 					},
 					error: function(jqXHR, textStatus) {
 						alert( "Request failed: " + textStatus );
@@ -191,16 +203,26 @@ window.stApp = {};
 				});
 			});
 
-			
+
 		/*Sends login data to the login script
 		*/
 if (!(logval = 0)){
-			$("#login-signup").on("click", "#login", function(){
+			$("#login-signup").on("click", "#login", function(e){
 				$.ajax({
 					type: 'POST',
 					url: 'database/loginScript.php',
 					data: $('#login-signup').serialize(),
 					success: function (data) {
+						var msg = "";
+						if (data === "Your Login Name or Password is invalid"){
+							msg = "Your Login Name or Password is invalid";
+						}
+						else{
+							window.location.reload();
+						}
+						e.stopImmediatePropagation();
+						$(".error-msg").remove();
+						$(".form-container").append("<p class='error-msg'>"+msg+"</p>");
 					},
 					error: function(jqXHR, textStatus) {
 						alert( "Request failed: " + textStatus );
@@ -215,7 +237,8 @@ if (!(logval = 0)){
 
   //logged in JS changes
 	var logselect = $('#Log');
-	if (logval > 0){
+	var loginval = 1;
+	if (logval > 0 && loginval > 0){
 		logselect.text('LogOut');
 		logselect.attr('id', 'Out');
 		$('#version').text("Beta v_1.0 " + loguser);
@@ -234,6 +257,7 @@ if (!(logval = 0)){
 		})
 		$('#version').text('Beta v_1.0')
 		logval = 0;
+		loginval = 0;
 	}
 
 	// when the document is ready
