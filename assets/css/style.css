@@ -281,6 +281,11 @@ fieldset input[type="submit"], fieldset button[type="button"] {
   border-left: 0;
 }
 
+.stars{
+  padding:  5px;
+  margin-left:85.7%;
+}
+
 /*Media Queries*/
 @media only screen and (max-width: 1200px) {
   body {
@@ -313,6 +318,9 @@ fieldset input[type="submit"], fieldset button[type="button"] {
   }
   #nav ul li {
     border-bottom: 0px solid #333;
+  }
+  .stars{
+    margin-left:70.7%;
   }
 }
 

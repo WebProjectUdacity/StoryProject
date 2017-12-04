@@ -260,6 +260,53 @@ if (!(logval = 0)){
 		loginval = 0;
 	}
 
+	//New JS for Voting function
+	$('img').click(function(){
+		var val = $(this).attr('class').split(' ')[0];
+		var id = $(this).parent().attr('id');
+		var select = $(this).parent();
+		var newSt = 'assets/images/star_voted.png';
+		var oldSt = 'assets/images/star.png';
+		$.ajax({
+			url: 'components/voting/votingSystem.php',
+			type: 'POST' ,
+			data: {vote: val,
+						 index: id},
+			success: function(data){
+				if (data === 'Please login'){
+				alert(data);
+			}
+				else {
+					switch(val){
+						case 'one':
+							select.find('.one').attr('src', newSt);
+							select.find('.two, .three, .four, .five').attr('src', oldSt);
+							break;
+						case 'two':
+							select.find('.one, .two').attr('src', newSt);
+							select.find('.three, .four, .five').attr('src', oldSt);
+							break;
+						case 'three':
+							select.find('.one, .two, .three').attr('src', newSt);
+							select.find('.four, .five').attr('src', oldSt);
+							break;
+						case 'four':
+							select.find('.one, .two, .three, .four').attr('src', newSt);
+							select.find('.five').attr('src', oldSt);
+							break;
+						case 'five':
+							select.find('.one, .two, .three, .four, .five').attr('src', newSt);
+							break;
+						default:
+							break;
+					}
+				}
+			}
+		})
+
+	})
+
+
 	// when the document is ready
 	// start the init function
 	// all of our code

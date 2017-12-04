@@ -1,24 +1,9 @@
 <section id="writeSection" class="panel-section">
   <div class="region-area region-area-1 bar mCustomScrollbar" data-mcs-theme="inset-2-dark">
     <?php
-    $directory = "components/writing/posts/";
-    $filecount = 0;
-    $files = glob($directory . "*");
-    if ($files){
-    $filecount = count($files);
-    }
-
-    if($filecount > 0){
-    for($i=1; $i-1 < $filecount-1; $i++){
-      echo "<div>";
-      echo "<p>";
-      include("components/writing/posts/file".$i.".txt");
-      echo "</p>";
-      echo "</div>";
-    }
-    }
+    include('components/writing/postListing.php');
     ?>
-  
+
   </div>
   <div class="region-area region-area-2">
 
