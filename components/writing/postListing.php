@@ -14,9 +14,15 @@ $files = glob($directory . "*");
 if ($files){
 $filecount = count($files);
 }
-if ($Verif === 1){
-  $userVoteData = unserialize(file_get_contents("components/voting/votesUserData/".$user.".txt"));
+
+//Checks if userVoteData file exists for logged in user
+if (file_exists("components/voting/votesUserData/".$user.".txt")){
+  if ($Verif === 1){
+    $userVoteData = unserialize(file_get_contents("components/voting/votesUserData/".$user.".txt"));
+  }
 }
+
+
 if($filecount > 0){
 for($i=1; $i < $filecount; $i++){
   //Sets vars of the links (default)
