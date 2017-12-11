@@ -168,6 +168,13 @@ window.stApp = {};
 					url: 'components/writing/basicWritingSave.php',
 					data: $('#form').serialize(),
 						success: function (data) {
+							if (data === "sucess!"){
+                 	window.location.reload();
+							}
+							else {
+								$(".error-msg2").remove();
+								$("#form").append("<p class='error-msg2'>"+data+"</p>");
+							}
 						},
 				});
 			});

@@ -16,8 +16,8 @@ $filecount = count($files);
 }
 
 //Checks if userVoteData file exists for logged in user
-if (file_exists("components/voting/votesUserData/".$user.".txt")){
-  if ($Verif === 1){
+if ($Verif === 1){
+  if (file_exists("components/voting/votesUserData/".$user.".txt")){
     $userVoteData = unserialize(file_get_contents("components/voting/votesUserData/".$user.".txt"));
   }
 }
@@ -35,15 +35,15 @@ for($i=1; $i < $filecount; $i++){
   //Sets stars based on userVotingData
   if(isset($userVoteData[$i])){
     switch($userVoteData[$i]){
-      case 1:
+      case 5:
         $starOne = 'assets/images/star_voted.png';
-      case 2:
+      case 4:
         $starTwo = 'assets/images/star_voted.png';
       case 3:
         $starThree = 'assets/images/star_voted.png';
-      case 4:
+      case 2:
         $starFour = 'assets/images/star_voted.png';
-      case 5:
+      case 1:
         $starFive = 'assets/images/star_voted.png';
       default:
         break;
@@ -54,6 +54,9 @@ for($i=1; $i < $filecount; $i++){
   echo "<p>";
   include("components/writing/posts/file".$i.".txt");
   echo "</p>";
+  echo "<span class='form-writing-username'>Post by ";
+  include("components/writing/byUsers/forFile".$i.".txt");
+  echo "</span>";
   echo "<div class='stars' id='$i'>";
   echo "<img src='$starFive' class='one'>";
   echo "<img src='$starFour' class='two'>";

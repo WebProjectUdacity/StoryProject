@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php session_start();
+include('components/voting/cronjob.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

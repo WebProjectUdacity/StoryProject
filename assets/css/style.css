@@ -168,9 +168,16 @@ fieldset input[type="submit"], fieldset button[type="button"] {
 }
 
 .error-msg{
-  color:#ff0000;
+  color:#ff0000!important;
   text-align: left;
   font-size: 0.5em!important;
+}
+
+.error-msg2{
+  color:#ff0000!important;
+  text-align: left;
+  font-size: 1.5em!important;
+  margin-top: -1px;
 }
 
 .icom {
@@ -284,6 +291,11 @@ fieldset input[type="submit"], fieldset button[type="button"] {
 .stars{
   padding:  5px;
   margin-left:85.7%;
+}
+
+.form-writing-username{
+  font-family: 'Arial', sans-serif;
+  font-style: italic;
 }
 
 /*Media Queries*/

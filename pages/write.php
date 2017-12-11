@@ -11,7 +11,7 @@
       <div class="form-control">
 
         <textarea name="write" cols="30" rows="8"></textarea>
-        <button type="button" name="Send Text" id="submit" onClick="window.location.reload()"> Submit </button>
+        <button type="button" name="Send Text" id="submit"> Submit </button>
 
       </div>
     </form>
