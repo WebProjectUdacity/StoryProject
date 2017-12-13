@@ -42,17 +42,17 @@ window.stApp = {};
 					case 'Log':
 						$panelSection.removeClass('active');
 						$('#loginSection').addClass('active');
-						$('.spinner-container').removeClass('active');
+						$('.spinner-container, .font-family-container').removeClass('active');
 						break;
 					case 'Guide':
 						$panelSection.removeClass('active');
 						$('#guideSection').addClass('active');
-						$('.spinner-container').removeClass('active');
+						$('.spinner-container, .font-family-container').removeClass('active');
 						break;
 					case 'Game':
 						$panelSection.removeClass('active');
 						$('#writeSection').addClass('active');
-						$('.spinner-container').addClass('active');
+						$('.spinner-container, .font-family-container').addClass('active');
 						break;
 					case 'Out':
 						logout();
@@ -60,7 +60,7 @@ window.stApp = {};
 					default:
 						$panelSection.removeClass('active');
 						$('#homeSection').addClass('active');
-						$('.spinner-container').removeClass('active');
+						$('.spinner-container, .font-family-container').removeClass('active');
 				}
 
 				var $li = $(this).closest('li');
@@ -157,6 +157,22 @@ window.stApp = {};
 				}
 				//..
 			});
+
+		};
+
+
+		this.initFontSelection = function() {
+			var $obj = $('#font-selector');
+			var _val;
+			
+			$obj.on('change', function(){
+				console.log($(this).find('option:selected').val())
+				_val = $(this).find('option:selected').val() ;
+				document.documentElement.style.setProperty(`--baseFontFamily`, `${_val}`);
+			});
+
+			
+
 
 		};
 
@@ -324,6 +340,7 @@ if (!(logval = 0)){
 		stApp.initToggleLogin();
 		stApp.initMalihu();
 		stApp.initAdjustFont();
+		stApp.initFontSelection();
 
 	});
 

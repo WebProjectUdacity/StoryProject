@@ -8,6 +8,10 @@
   }
 }
 
+:root {
+  --baseFontFamily: 'Monotype Corsiva';
+}
+
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -49,13 +53,14 @@ p {
 }
 
 #writeSection p {
-  font-family: 'Monotype Corsiva';
+  font-family: var(--baseFontFamily);
   color: black;
 }
 
 /* Sidenav */
 
 #nav {
+  position: relative;
   background-image: url("../images/sidenav.png");
   border: 2px solid #361818;
   padding-left: 13px;
@@ -270,7 +275,32 @@ fieldset input[type="submit"], fieldset button[type="button"] {
   transition: .4s opacity ease-in-out;
 }
 
-.spinner-container.active {
+.font-family-container {
+  opacity: 0;
+  pointer-events: none;
+  transition: .4s opacity ease-in-out;
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 2rem;
+  text-align: center;
+}
+
+.font-family-container select {
+  display: inline-block;
+  background-color: transparent;
+  padding: 7px 5px;
+  border: 1px solid black;
+}
+
+.font-family-container option {
+  background-color: transparent;
+  padding: 5px;
+  border-bottom: 1px;
+}
+
+.spinner-container.active,
+.font-family-container.active {
   opacity: 1;
   pointer-events: inherit;
 }
