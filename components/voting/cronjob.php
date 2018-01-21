@@ -21,7 +21,7 @@ if(strtotime($last_run) < (time()-48*3600)){
     $highest = max($votesArr);
     $id = array_search($highest, $votesArr);
     $winner = file_get_contents('components/writing/posts/file'.$id.'.txt');
-    file_put_contents('ourStory.txt', $winner."\n\n", FILE_APPEND);
+    file_put_contents('ourStory.md', $winner."\n\n", FILE_APPEND);
     $filesdel =  glob('{components/voting/votes/*.txt,components/voting/votesUserData/*.txt,components/writing/posts/*.txt,components/writing/byUsers/*.txt}', GLOB_BRACE);
     foreach($filesdel as $files){
       unlink($files);

@@ -1,14 +1,11 @@
 <div id="nav">
 	<ul>
-		<li class="active"><a href="#homeSection"><span id="Home" class="stm">Home<img src="assets/images/home.png" class="icom"></span></a></li>
-		<li><a href="#loginSection"><span id="Log" class="stm">LogIn<img src="assets/images/login.png" class="icom"></span></a></li>
-		<li><a href="#guideSection"><span id="Guide" class="stm">Guide<img src="assets/images/guide.png" class="icom"></span></a></li>
-		<li><a href="#writeSection"><span id="Game" class="stm">Vote!<img src="assets/images/edit.png" class="icom"></span></a></li>
-		<li><a href="write.php"><span>Write!<img src="assets/images/edit.png" class="icom"></span></a></li>
+		<li><a href="index.php"><span id="Home" class="stm"><img src="assets/images/back_arr.svg" class="app_nav_icons"></span></a></li>
 	</ul>
 
+
 	<div class="font-family-container">
-		<select name="fonts" id="font-selector">
+		<select name="fonts" id="font-selector" style>
 			<option value="Monotype Corsiva" selected>Monotype Corsiva</option>
 			<option value="Apple Chancery">Apple Chancery</option>
 			<option value="Arial">Arial</option>
@@ -19,6 +16,12 @@
 			<option value="Trebuchet MS">Trebuchet MS</option>
 			<option value="Helvetica">Helvetica</option>
 		</select>
+	</div>
+	<span class="font_family_container_icon"><img src="assets/images/font_select.svg" class="app_nav_icons font-ico"></span>
+
+	<div class="spinner-container">
+		<button class="spinner-btn btn-plus">+</button>
+		<button class="spinner-btn btn-minus">-</button>
 	</div>
 
 	<?php
