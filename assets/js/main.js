@@ -151,7 +151,7 @@ window.stApp = {};
 
 			$btnMinus.on('click', function(e){
 				e.stopPropagation();
-				if(initVal => 18) {
+				if(initVal > 17) {
 					initVal--;
 					$('#writeSection p').css({ fontSize : initVal + 'px' });
 				}
@@ -164,14 +164,14 @@ window.stApp = {};
 		this.initFontSelection = function() {
 			var $obj = $('#font-selector');
 			var _val;
-			
+
 			$obj.on('change', function(){
 				console.log($(this).find('option:selected').val())
 				_val = $(this).find('option:selected').val() ;
 				document.documentElement.style.setProperty(`--baseFontFamily`, `${_val}`);
 			});
 
-			
+
 
 
 		};
