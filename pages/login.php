@@ -6,9 +6,9 @@
 
 			<div class="form-row choice-row">
 				<input type="radio" name="form" id="loginBtn" value="LogIn" checked>
-				<label for="loginBtn">Log In</label>
+				<label for="loginBtn" class="logsign">Log In</label>
 				<input type="radio" name="form" id="signupBtn" value="SignUp">
-				<label for="signupBtn">Sign Up</label>
+				<label for="signupBtn" class="logsign">Sign Up</label>
 			</div>
 
 			<div class="form-row login-row active">

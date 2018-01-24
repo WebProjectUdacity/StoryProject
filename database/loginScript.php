@@ -8,7 +8,7 @@
       $myusername = mysqli_real_escape_string($db,$_POST['userLogin']);
       $mypassword = mysqli_real_escape_string($db,$_POST['userPass']);
 
-      $sql = "SELECT id FROM users WHERE BINARY username = '$myusername' and BINARY password = '$mypassword'";
+      $sql = "SELECT id FROM users WHERE username = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($db,$sql);
       if (!$result) {
         printf("Error: %s\n", mysqli_error($db));

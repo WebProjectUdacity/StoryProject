@@ -24,7 +24,7 @@ body {
   width: 1200px;
   margin: auto;
   margin-top: 20px;
-  font-family: 'Pinyon Script', sans-serif;
+  font-family: 'Monotype Corsiva', sans-serif;
   background-color: #895656;
 }
 /* Header */
@@ -94,7 +94,7 @@ p {
   background-image: url('../images/scroll.jpg');
   width: 97.8%;
   border: 2px solid #361818;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   max-height: 685px;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
@@ -245,7 +245,12 @@ fieldset input[type="submit"], fieldset button[type="button"] {
   height: 100%;
 }
 
-
+.logsign{
+  border: 1.5px solid;
+  border-color: black;
+  padding: 4px;
+  border-radius: 3px;
+}
 
 
 
@@ -319,7 +324,7 @@ fieldset input[type="submit"], fieldset button[type="button"] {
 
 /*IE Adjustment*/
 main {
-  display: block;  
+  display: block;
   width: 200px;
 }
 

@@ -4,6 +4,8 @@
 $directory = "posts/";
 $filecount = 0;
 $files = glob($directory . "*");
+$minLength = 500;
+$maxLength = 3000;
 
 if ($files){
  $filecount = count($files);
@@ -14,18 +16,18 @@ if (isset($_SESSION['login_user'])){
       $u_name =  $_SESSION['login_user'];
       $data = $_POST['write'];
 
-      if (strlen($data) >= 1000 && strlen($data) <= 3000)
+      if (strlen($data) >= $minLength && strlen($data) <= $maxLength)
         {
           $ret = file_put_contents('posts/file'.$filecount.'.txt', $data);
           file_put_contents('byUsers/forFile'.$filecount.'.txt', $u_name);
           echo "sucess!";
         }
       else {
-        if (strlen($data) < 1000){
-          echo "Your post is too short, it should have at least 1000 characters, but it only has ".strlen($data).".";
+        if (strlen($data) < $minLength){
+          echo "Your post is too short, it should have at least ".$minLength." characters, but it only has ".strlen($data).".";
           }
         else{
-          echo "Your post is too long, it should have 3000 characters max, but yours has ".strlen($data).".";
+          echo "Your post is too long, it should have ".$maxLength." characters max, but yours has ".strlen($data).".";
           }
         }
       }

@@ -168,7 +168,7 @@ window.stApp = {};
 			$obj.on('change', function(){
 				console.log($(this).find('option:selected').val())
 				_val = $(this).find('option:selected').val() ;
-				document.documentElement.style.setProperty('--baseFontFamily', '${_val}');
+				document.documentElement.style.setProperty('--baseFontFamily', _val);
 			});
 
 
