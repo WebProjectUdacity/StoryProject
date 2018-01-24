@@ -26,6 +26,7 @@ body {
   margin-top: 0px;
   font-family: 'Pinyon Script', sans-serif;
   background-color: #895656;
+  overflow: hidden;
 }
 
 h1 {
@@ -35,8 +36,9 @@ h1 {
 #wrap {
   margin-top: 0px;
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 100px calc(70% - 100px) 30%;
-  grid-gap: 0;
+  -ms-grid-columns: 100px calc(70% - 100px) 30%;
   height:99%
 }
 
@@ -60,6 +62,8 @@ p {
   border: 2px solid #361818;
   padding-left: 13px;
   padding-bottom: 19.3em;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
 }
 #nav ul {
   list-style: none;
@@ -86,6 +90,8 @@ p {
   border: 2px solid #361818;
   background-repeat: repeat;
   height: 100%;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
 }
 
 #vote{
@@ -98,11 +104,13 @@ p {
   color: black!important;
   padding:1rem;
   padding-top:0px;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
 }
 
 .bar {
   overflow: auto;
-  height: calc(100vh - 227px);
+  height: calc(100vh - 218px);
 }
 
 .barvote {
@@ -359,6 +367,12 @@ fieldset input[type="submit"], fieldset button[type="button"] {
 
 #font-selector{
   opacity: 0;
+}
+
+/*IE Adjustment*/
+main {
+  display: block;  
+  width: 200px;
 }
 
 /*Media Queries*/

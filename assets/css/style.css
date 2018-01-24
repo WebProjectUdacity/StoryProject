@@ -41,8 +41,10 @@ h1 {
 #wrap {
   margin-top: 1%;
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 14.8% 85.7%;
   grid-gap: 1.2%;
+  -ms-grid-columns: 14.8% 85.7%;
 }
 
 p {
@@ -65,6 +67,8 @@ p {
   border: 2px solid #361818;
   padding-left: 13px;
   padding-bottom: 19.3em;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
 }
 #nav ul {
   list-style: none;
@@ -92,6 +96,8 @@ p {
   border: 2px solid #361818;
   background-repeat: no-repeat;
   max-height: 685px;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
 }
 
 .bar {
@@ -198,6 +204,8 @@ fieldset input[type="submit"], fieldset button[type="button"] {
   position: relative;
   opacity: 0;
   transform: translateY(8px);
+  -ms-grid-column: 2;
+  -ms-grid-row: 1;
 }
 .panel-section.active {
   display: block!important;
@@ -309,6 +317,12 @@ fieldset input[type="submit"], fieldset button[type="button"] {
   font-style: italic;
 }
 
+/*IE Adjustment*/
+main {
+  display: block;  
+  width: 200px;
+}
+
 /*Media Queries*/
 @media only screen and (max-width: 1200px) {
   body {
@@ -317,6 +331,7 @@ fieldset input[type="submit"], fieldset button[type="button"] {
   }
   #wrap {
     grid-template-columns: 20.8% 79.7%;
+	-ms-grid-columns: 20.8% 79.7%;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -325,8 +340,9 @@ fieldset input[type="submit"], fieldset button[type="button"] {
   }
   #wrap {
     grid-template-columns: 80px 92%;
-    display: grid;
     grid-column-gap: 0%;
+	-ms-grid-columns: 80px 92%;
+	-ms-grid-column-gap: 0%;
   }
   .stm {
     visibility: hidden;

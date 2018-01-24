@@ -69,21 +69,21 @@ window.stApp = {};
 					case 'LogIn':
 						$signInPanel.removeClass('active').addClass('hidden-row').empty();
 						$loginPanel.removeClass('hidden-row').addClass('active');
-						$loginPanel.append(`
-						<label for="userLogin">Username:</label><input type="text" name="userLogin" required>
-						<label for="userPass">Password:</label><input type="password" name="userPass" placeholder="******" required>
-						<button type="button" value="LogIn" id="login">LogIn</button>`);
+						$loginPanel.append(' \
+						<label for="userLogin">Username:</label><input type="text" name="userLogin" required> \
+						<label for="userPass">Password:</label><input type="password" name="userPass" placeholder="******" required> \
+						<button type="button" value="LogIn" id="login">LogIn</button>');
 						break;
 					case 'SignUp':
 						$loginPanel.removeClass('active').addClass('hidden-row').empty();
 						$signInPanel.removeClass('hidden-row').addClass('active');
-						$signInPanel.append(`
-						<label for="userSignIn">Username:</label><input type="text" name="userSignIn" required>
-						<label for="emailSignIn">Email adress:</label><input type="email" placeholder="your@domain.com" name="emailSignIn" required>
-						<label for="passSignIn">Password:</label><input type="password" placeholder="******" name="passSignIn" required>
-						<label for="confirmSignIn">Password:</label><input type="password" placeholder="******" name="confirmSignIn" required>
-						<button type="button" id="signup">SignUp</button>
-						`);
+						$signInPanel.append(' \
+						<label for="userSignIn">Username:</label><input type="text" name="userSignIn" required> \
+						<label for="emailSignIn">Email adress:</label><input type="email" placeholder="your@domain.com" name="emailSignIn" required> \
+						<label for="passSignIn">Password:</label><input type="password" placeholder="******" name="passSignIn" required> \
+						<label for="confirmSignIn">Password:</label><input type="password" placeholder="******" name="confirmSignIn" required> \
+						<button type="button" id="signup">SignUp</button> \
+						');
 
 				}
 
@@ -134,7 +134,7 @@ window.stApp = {};
 
 			$btnMinus.on('click', function(e){
 				e.stopPropagation();
-				if(initVal => 18) {
+				if(initVal > 17) {
 					initVal--;
 					$('#writeSection p').css({ fontSize : initVal + 'px' });
 				}
@@ -151,7 +151,7 @@ window.stApp = {};
 			$obj.on('change', function(){
 				console.log($(this).find('option:selected').val())
 				_val = $(this).find('option:selected').val() ;
-				document.documentElement.style.setProperty(`--baseFontFamily`, `${_val}`);
+				document.documentElement.style.setProperty('--baseFontFamily', '${_val}');
 			});
 
 
