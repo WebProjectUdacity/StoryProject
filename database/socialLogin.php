@@ -37,6 +37,7 @@ if (isset($_POST['username']))
 			$new_user = array(
 				"username" => $_POST['username'],
 				"email"     => $_POST['usermail'],
+        "password"  => 'JxRx;JA\QD`&X%7Xp2u<,P$sD6D9:h',
 			);
     	//var to add all data into the right rows
 			$sql = sprintf(
