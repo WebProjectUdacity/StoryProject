@@ -30,7 +30,7 @@
 	?>
 
 	<script type="text/javascript">
-	var logval='<?php echo $login_value;?>';
+	var logval=Number('<?php echo $login_value;?>');
 	var loguser='<?php echo $login_user;?>';
 	</script>
 </div>

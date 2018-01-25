@@ -24,10 +24,12 @@
 	<?php
 	$login_value=(isset($_SESSION['login']))?$_SESSION['login']:'';;
 	$login_user=(isset($_SESSION['login_user']))?$_SESSION['login_user']:'';;
+	$login_social=(isset($_SESSION['fbLog']))?$_SESSION['fbLog']:'';;
 	?>
 
 	<script type="text/javascript">
-	var logval='<?php echo $login_value;?>';
+	var logval=Number('<?php echo $login_value;?>');
 	var loguser='<?php echo $login_user;?>';
+	var fbLog =	 '<?php echo $login_social;?>';
 	</script>
 </div>

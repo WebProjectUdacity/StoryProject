@@ -17,11 +17,19 @@
 			<div class="form-row signIn-row hidden-row">
 
 			</div>
-
-
+			<div scope="public_profile,email"
+		  onlogin="checkLoginState();"
+			class="fb-login-button"
+			data-max-rows="1"
+			data-size="medium"
+			data-button-type="login_with"
+			data-show-faces="false"
+			data-auto-logout-link="false"
+			data-use-continue-as="false">
+		</div>
 		</fieldset>
 
-
 	</form>
+
 
 </section>

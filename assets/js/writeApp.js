@@ -220,7 +220,7 @@ window.stApp = {};
 
 		/*Sends login data to the login script
 		*/
-if (!(logval = 0)){
+if (!(logval == 0)){
 			$("#login-signup").on("click", "#login", function(e){
 				$.ajax({
 					type: 'POST',

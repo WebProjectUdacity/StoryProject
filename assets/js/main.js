@@ -170,11 +170,8 @@ window.stApp = {};
 				_val = $(this).find('option:selected').val() ;
 				document.documentElement.style.setProperty('--baseFontFamily', _val);
 			});
-
-
-
-
 		};
+
 
 
 		/*Sends data from write to the basicsWritingSave.php*/
@@ -229,7 +226,7 @@ window.stApp = {};
 
 		/*Sends login data to the login script
 		*/
-if (!(logval = 0)){
+if (logval == 0){
 			$("#login-signup").on("click", "#login", function(e){
 				$.ajax({
 					type: 'POST',
@@ -281,6 +278,13 @@ if (!(logval = 0)){
 		$('#version').text('Beta v_1.0')
 		logval = 0;
 		loginval = 0;
+			if (fbLog == 1){
+				//FB Logout
+					FB.logout(function(response) {
+   				// Person is now logged out
+					});
+					fbLog = 0;
+				}
 	}
 
 	//New JS for Voting function
@@ -346,3 +350,19 @@ if (!(logval = 0)){
 
 
 })(window, document, jQuery, window.stApp)
+
+
+//Social LogIn
+function socialLogin(name, mail){
+	console.log(name);
+	$.ajax({
+			type: 'POST',
+			url: 'database/socialLogin.php',
+			data: {username: name,
+						usermail: mail},
+			success: function(data){
+					window.location.reload();
+				},
+
+			});
+	};

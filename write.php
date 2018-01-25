@@ -10,6 +10,8 @@ include('components/voting/cronjob.php');
 	<link rel="stylesheet" href="assets/css/vendor/jquery.mCustomScrollbar.css">
 </head>
 <body>
+	<!-- Facebook Social Login -->
+	<script src="assets/js/facebookLogin.js"></script>
 
 	<div id="wrap">
 		<?php include('components/writeApp/writeAppNav.php');?>
