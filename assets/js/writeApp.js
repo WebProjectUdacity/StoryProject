@@ -337,3 +337,147 @@ if (!(logval == 0)){
 
 
 })(window, document, jQuery, window.stApp)
+
+function writeMenue(actionEx, mElementEx){
+	//Main Variables
+	var menues 					= $('.menue').toArray();
+	var mLength 				= $(menues).length;
+	var mElements 			= new Array();
+	var mElementsFitCol = new Array();
+	var mElementsFitRow = new Array();
+
+
+	//Loop  to save  all menue elements to an object
+	for(i = 0; mLength >= i+1; i++){
+		mElements[i+1] ={	element: 	menues[i],
+											columns: 	$(menues[i]).css('grid-column'),
+											rows:			$(menues[i]).css('grid-row'),
+											id:				$(menues[i]).attr('id'),
+											msCol:		$(menues[i]).css('-ms-grid-column-span'),
+											msRow:		$(menues[i]).css('-ms-grid-row-span')};
+	}
+
+	//Function to filter objects  which are  not already as small as posible
+	function elementsFit(arr, val){
+		if (val = 'columns'){
+			var mVal = 'msCol';
+		}
+	else if(val = 'rows'){
+			var mVal = 'msRow';
+		}
+
+		for(i = 0; mLength > i; i++){
+			if((mElements[i+1][val][4] - mElements[i+1][val][0]) == 2 || mElements[i+1][mVal] == 2){
+					arr[i] = mElements[i+1]['element'];
+			}
+		}
+	}
+
+
+//Function to add or delete the css attributes
+function cssChange(action, mElement){
+	//CSS Variables
+
+	function cssVariables(ele){
+		if (ele === 'cssAdd'){
+		 				var cssAdd =  	{
+											'position' 							: 'relative',
+											'visibility' 						: 'visible',
+											'height' 								: '100%',
+											'width' 								: '100%',
+											'-ms-grid-row' 					: rows,
+											'-ms-grid-row-span'		 	: msrSpan,
+											'-ms-grid-column' 			: columns,
+											'-ms-grid-column-span' 	: mscSpan,
+											'grid-column' 					: columns + ' / ' + colEnd,
+											'grid-row' 							: rows + ' / ' + rowEnd,
+										};
+									}
+		else if (ele === 'cssAddDom'){
+						var cssAdd = {
+											'-ms-grid-column' 			: columnsDom,
+											'-ms-grid-column-span' 	: mscSpan,
+											'grid-column' 					: columnsDom + ' / ' + colEndDom,
+			}
+		}
+			return cssAdd;
+	}
+
+
+	var cssDel =  {
+								'position' 		: 'absolute',
+								'visibility' 	: 'hidden',
+								'height' 			: '0%',
+								'width' 			: '0%',
+							};
+
+
+	if(action = 'add'){
+
+		var domKey = "";
+
+		elementsFit(mElementsFitCol, 'columns')
+		elementsFit(mElementsFitRow, 'rows')
+
+		if(mElementsFitCol.length > 0){
+
+			//Getting Data for the correct Element
+			mElements.forEach(function(mEle){
+				if(mEle.element == mElementsFitCol[0]){
+					domKey = mEle;
+				}
+			})
+
+			//Setting Variables
+			rows 			= domKey.rows[0]+"";
+			rSpan 		= domKey.rows[4] - rows+"";
+			msrSpan 	= domKey.msRow+"";
+			columns  	= Number(domKey.columns[0])+1+"";
+			cSpan  		= domKey.columns[4] - columns+"";
+			mscSpan		= domKey.msCol - 1+"";
+			colEnd 	= Number(columns) + Number(cSpan)+"";
+			rowEnd 	= Number(rows) + Number(rSpan)+"";
+			columnsDom = Number(columns) - 1+"";
+			colEndDom = Number(colEnd) - 1+"";
+
+
+			$(mElement).css(cssVariables('cssAdd'));
+			$(domKey.element).css(cssVariables('cssAddDom'));
+
+			console.log(columns);
+
+		}
+
+		else if(mElementsFitRow.length > 0){
+
+			//Getting Data for the correct element
+			mElements.forEach(function(mEle){
+				if(mEle.element == mElementsFitRow[0]){
+					domKey = mEle;
+				}
+			})
+
+		}
+		else{
+			console.log(mElements[1].msCol);
+			console.log('Too many elements');}
+	}
+	else if(action = 'delete'){
+
+	}
+	else {console.log('error');}
+
+
+}
+
+	elementsFit(mElementsFitCol, 'columns')
+	console.log(mElementsFitCol[0]);
+
+	cssChange(actionEx, mElementEx);
+}
+
+function addCharEle(){
+	writeMenue('add', $('#char'));
+}
+
+$('#Char').click(addCharEle);

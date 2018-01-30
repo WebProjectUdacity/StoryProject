@@ -37,9 +37,11 @@ h1 {
   margin-top: 0px;
   display: grid;
   display: -ms-grid;
-  grid-template-columns: 100px calc(70% - 100px) 30%;
-  -ms-grid-columns: 100px calc(70% - 100px) 30%;
-  height:99%
+  grid-template-columns: 100px 34% 34% calc(32% - 100px);
+  -ms-grid-columns: 100px 34% 34% calc(32% - 100px);
+  grid-template-rows:  50% 50%;
+  -ms-grid-rows:  50% 50%;
+  height:99%;
 }
 
 p {
@@ -63,7 +65,11 @@ p {
   padding-left: 13px;
   padding-bottom: 19.3em;
   -ms-grid-row: 1;
+  -ms-grid-row-span:2;
   -ms-grid-column: 1;
+  grid-row: 1 / 3;
+  height:100%;
+  transition: 0.2s ease-in-out;
 }
 #nav ul {
   list-style: none;
@@ -91,11 +97,16 @@ p {
   background-repeat: repeat;
   height: 100%;
   -ms-grid-row: 1;
+  -ms-grid-row-span:2;
   -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+
 }
 
 #vote{
-  background-image: url('../images/sidenav.png');
+  background-image: url('../images/scroll.jpg');
   width: 100%;
   border: 2px solid #361818;
   background-repeat: repeat;
@@ -105,7 +116,25 @@ p {
   padding:1rem;
   padding-top:0px;
   -ms-grid-row: 1;
-  -ms-grid-column: 3;
+  -ms-grid-row-span:1;
+  -ms-grid-column: 4;
+  grid-column: 4 ;
+  grid-row:1 / 2;
+}
+
+#char{
+  background-image: url('../images/scroll.jpg');
+  width: 0px;
+  border: 2px solid #361818;
+  background-repeat: repeat;
+  height: 0px;
+  font-family: var(--baseFontFamily);
+  color: black!important;
+  padding:1rem;
+  padding-top:0px;
+  visibility: hidden;
+  position: absolute;
+
 }
 
 .bar {
@@ -115,8 +144,14 @@ p {
 
 .barvote {
   overflow: auto;
+  height: 50vh;
+}
+
+.barvoteFull {
+  overflow: auto;
   height: calc(100vh - 26px);
 }
+
 
 #main h1 {
   text-align: center;
@@ -371,7 +406,7 @@ fieldset input[type="submit"], fieldset button[type="button"] {
 
 /*IE Adjustment*/
 main {
-  display: block;  
+  display: block;
   width: 200px;
 }
 

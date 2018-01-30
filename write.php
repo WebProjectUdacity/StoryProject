@@ -16,7 +16,7 @@ include('components/voting/cronjob.php');
 	<div id="wrap">
 		<?php include('components/writeApp/writeAppNav.php');?>
 
-		<main role="main" id="main">
+		<main role="main" id="main" class="menue">
 
 			<section id="writeSection" class="panel-section">
 			  <div class="region-area region-area-1 bar mCustomScrollbar" data-mcs-theme="inset-2-dark">
@@ -43,7 +43,7 @@ include('components/voting/cronjob.php');
 
 		</main>
 
-	<div id="vote">
+	<div id="vote" class="menue">
 		<div class=" barvote mCustomScrollbar" data-mcs-theme="inset-2-dark">
 			<?php
 			include('components/writing/postListing.php');
@@ -52,6 +52,15 @@ include('components/voting/cronjob.php');
 		</div>
 	</div>
 
+
+	<div id="char" class="menue">
+		<div class=" barvote mCustomScrollbar" data-mcs-theme="inset-2-dark">
+			<?php
+			include('components/writing/postListing.php');
+			?>
+
+		</div>
+	</div>
 	</div>
 
 	<!-- js script go before the </body> -->

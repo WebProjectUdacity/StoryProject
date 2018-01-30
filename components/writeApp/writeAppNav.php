@@ -1,6 +1,7 @@
 <div id="nav">
 	<ul>
 		<li><a href="index.php"><span id="Home" class="stm"><img src="assets/images/back_arr.svg" class="app_nav_icons"></span></a></li>
+		<li><a><span id="Char" class="stm"><img src="assets/images/character.svg" class="app_nav_icons"></span></a></li>
 	</ul>
 
 
