@@ -44,7 +44,7 @@ include('components/voting/cronjob.php');
 		</main>
 
 	<div id="vote" class="menue">
-		<div class=" barvote mCustomScrollbar" data-mcs-theme="inset-2-dark">
+		<div class=" barvoteFull mCustomScrollbar" data-mcs-theme="inset-2-dark">
 			<?php
 			include('components/writing/postListing.php');
 			?>
@@ -54,13 +54,25 @@ include('components/voting/cronjob.php');
 
 
 	<div id="char" class="menue">
-		<div class=" barvote mCustomScrollbar" data-mcs-theme="inset-2-dark">
+		<div class=" barvoteFull mCustomScrollbar" data-mcs-theme="inset-2-dark">
 			<?php
 			include('components/writing/postListing.php');
 			?>
 
 		</div>
 	</div>
+
+
+	<div id="bgInfo" class="menue">
+		<div class=" barvoteFull mCustomScrollbar" data-mcs-theme="inset-2-dark">
+			<?php
+			include('components/writing/postListing.php');
+			?>
+
+		</div>
+	</div>
+
+
 	</div>
 
 	<!-- js script go before the </body> -->

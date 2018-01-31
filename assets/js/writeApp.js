@@ -359,16 +359,18 @@ function writeMenue(actionEx, mElementEx){
 
 	//Function to filter objects  which are  not already as small as posible
 	function elementsFit(arr, val){
-		if (val = 'columns'){
+		var index = 0;
+		if (val == 'columns'){
 			var mVal = 'msCol';
 		}
-	else if(val = 'rows'){
+		else if(val == 'rows'){
 			var mVal = 'msRow';
 		}
 
 		for(i = 0; mLength > i; i++){
 			if((mElements[i+1][val][4] - mElements[i+1][val][0]) == 2 || mElements[i+1][mVal] == 2){
-					arr[i] = mElements[i+1]['element'];
+					arr[index] = mElements[i+1]['element'];
+					index++;
 			}
 		}
 	}
@@ -398,6 +400,9 @@ function cssChange(action, mElement){
 											'-ms-grid-column' 			: columnsDom,
 											'-ms-grid-column-span' 	: mscSpan,
 											'grid-column' 					: columnsDom + ' / ' + colEndDom,
+											'-ms-grid-row' 					: rowsDom,
+											'-ms-grid-row-span'		 	: msrSpan,
+											'grid-row' 							: rowsDom + ' / ' + rowEndDom,
 			}
 		}
 			return cssAdd;
@@ -412,14 +417,15 @@ function cssChange(action, mElement){
 							};
 
 
-	if(action = 'add'){
+	if(action = 'add' && $(mElement).css('visibility')  === 'hidden' ){
 
 		var domKey = "";
 
-		elementsFit(mElementsFitCol, 'columns')
-		elementsFit(mElementsFitRow, 'rows')
+		elementsFit(mElementsFitCol, 'columns');
+		elementsFit(mElementsFitRow, 'rows');
 
 		if(mElementsFitCol.length > 0){
+			//In case of columns to split
 
 			//Getting Data for the correct Element
 			mElements.forEach(function(mEle){
@@ -429,26 +435,29 @@ function cssChange(action, mElement){
 			})
 
 			//Setting Variables
-			rows 			= domKey.rows[0]+"";
-			rSpan 		= domKey.rows[4] - rows+"";
-			msrSpan 	= domKey.msRow+"";
-			columns  	= Number(domKey.columns[0])+1+"";
-			cSpan  		= domKey.columns[4] - columns+"";
-			mscSpan		= domKey.msCol - 1+"";
-			colEnd 	= Number(columns) + Number(cSpan)+"";
-			rowEnd 	= Number(rows) + Number(rSpan)+"";
-			columnsDom = Number(columns) - 1+"";
-			colEndDom = Number(colEnd) - 1+"";
+			rows 				= domKey.rows[0]+"";
+			rSpan 			= domKey.rows[4] - rows+"";
+			msrSpan 		= domKey.msRow+"";
+			columns  		= Number(domKey.columns[0])+1+"";
+			cSpan  			= domKey.columns[4] - columns+"";
+			mscSpan			= domKey.msCol - 1+"";
+			colEnd 			= Number(columns) + Number(cSpan)+"";
+			rowEnd 			= Number(rows) + Number(rSpan)+"";
+			columnsDom 	= Number(columns) - 1+"";
+			colEndDom 	= Number(colEnd) - 1+"";
+			rowsDom 		= domKey.rows[0]+"";
+			rowEndDom 	= Number(rows) + Number(rSpan)+"";
 
 
 			$(mElement).css(cssVariables('cssAdd'));
 			$(domKey.element).css(cssVariables('cssAddDom'));
 
-			console.log(columns);
+
 
 		}
 
 		else if(mElementsFitRow.length > 0){
+			//In case of  rows to split
 
 			//Getting Data for the correct element
 			mElements.forEach(function(mEle){
@@ -457,9 +466,38 @@ function cssChange(action, mElement){
 				}
 			})
 
+			//Setting Variables
+			rows 				= "2";
+			rSpan 			= "1";
+			msrSpan 		= "1";
+			columns  		= Number(domKey.columns[0])+"";
+			cSpan  			= domKey.columns[4]+"";
+			mscSpan			= domKey.msCol+"";
+			colEnd 			= cSpan+"";
+			rowEnd 			= "3";
+			rowsDom 		= "1";
+			rowEndDom 	= "2";
+
+
+			$(mElement).css(cssVariables('cssAdd'));
+			$(mElement).removeClass('barvoteFull');
+			$(mElement).addClass('barvote');
+			$(domKey.element).css(cssVariables('cssAddDom'));
+			if($(domKey.element).attr('id') === 'main'){
+				var selector = $(domKey.element).find('.bar');
+				$(selector).removeClass('bar');
+				$(selector).addClass('barHalf');
+			}
+			else{
+				var selector = $(domKey.element).find('.barvoteFull');
+				$(selector).removeClass('barvoteFull');
+				$(selector).addClass('barvote');
+			}
+
+			console.log(columns);
 		}
 		else{
-			console.log(mElements[1].msCol);
+			console.log(mElementsFitCol);
 			console.log('Too many elements');}
 	}
 	else if(action = 'delete'){
@@ -480,4 +518,9 @@ function addCharEle(){
 	writeMenue('add', $('#char'));
 }
 
+function addbgInfoEle(){
+	writeMenue('add', $('#bgInfo'));
+}
+
 $('#Char').click(addCharEle);
+$('#BackInfo').click(addbgInfoEle);
