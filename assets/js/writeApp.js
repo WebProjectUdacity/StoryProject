@@ -478,10 +478,10 @@ function cssChange(action, mElement){
 			rowsDom 		= "1";
 			rowEndDom 	= "2";
 
-
+			var selector = $(mElement).find('.barvoteFull');
 			$(mElement).css(cssVariables('cssAdd'));
-			$(mElement).removeClass('barvoteFull');
-			$(mElement).addClass('barvote');
+			$(selector).removeClass('barvoteFull');
+			$(selector).addClass('barvote');
 			$(domKey.element).css(cssVariables('cssAddDom'));
 			if($(domKey.element).attr('id') === 'main'){
 				var selector = $(domKey.element).find('.bar');
